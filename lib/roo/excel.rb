@@ -323,7 +323,7 @@ class Excel < GenericSpreadsheet
     
     case vt # @cell_type[sheet][key]
     when :float
-      @cell[sheet][key] = v.to_f
+      @cell[sheet][key] = Integer(v) rescue Float(v)
     when :string
       @cell[sheet][key] = v
     when :date

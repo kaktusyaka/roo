@@ -326,7 +326,7 @@ class Excelx < GenericSpreadsheet
     @cell[sheet]    = {} unless @cell[sheet]
     case @cell_type[sheet][key]
     when :float
-      @cell[sheet][key] = v.to_f
+      @cell[sheet][key] = Integer(v) rescue Float(v)
     when :string
       @cell[sheet][key] = str_v
     when :date
